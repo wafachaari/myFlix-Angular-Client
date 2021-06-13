@@ -47,6 +47,7 @@ export class UserLoginService {
         catchError(this.handleError)
       );
   }
+ 
   private handleError(error: HttpErrorResponse): any {
     if (error.error instanceof ErrorEvent) {
       console.error('Some error occurred:', error.error.message);
