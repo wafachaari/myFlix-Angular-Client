@@ -1,0 +1,36 @@
+<app-nav-bar></app-nav-bar>
+<div class="content">
+  <div fxLayout="row wrap" fxLayoutGap="16px grid">
+    <div  fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%"  *ngFor="let movie of movies;">
+      <mat-card class="matcard">
+    
+      <img  mat-card-image src={{movie.ImagePath}} alt={{movie.Title}} />
+      
+      <mat-card-header>
+        <mat-card-title>{{movie.Title}}</mat-card-title>
+        <mat-card-subtitle>Directed by: {{movie.Director.Name}}</mat-card-subtitle>
+      </mat-card-header><mat-card-actions>
+        <button mat-button color="primary" (click)="getGenre(
+                movie.Genre.Name,
+                movie.Genre.Description)">
+          Genre
+        </button>
+        <button mat-button color="primary" (click)="getDirector(
+                movie.Director.Name,
+                movie.Director.Bio,movie.Director.Birth,movie.Director.Death)">
+          Director
+        </button>
+        
+        <button matTooltip="Favorite movie" matTooltipPosition="above" mat-icon-button
+          aria-label="Adds movie to user's list of favorites" (click)="adddeletefavorite(movie._id)">
+          <mat-icon color="warn">
+            <span *ngIf="isFavorite(movie._id); else elseBlock">favorite</span>
+            <ng-template #elseBlock>favorite_border</ng-template>
+          </mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+    </div>
+  </div>
+
+</div>

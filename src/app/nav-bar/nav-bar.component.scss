@@ -1,0 +1,51 @@
+.navbar {
+  --blue: rgb(3, 118, 227);
+  --default-font: 'Archivo', sans-serif;
+  --gray: rgb(130, 141, 153);
+  --black: rgb(30, 33, 39);
+  --border-gray: rgb(48, 51, 58);
+  font-family: var(--default-font);
+  border: 1px solid var(--border-gray);
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  background-color: var(--black);
+}
+
+.nav-container {
+  width: 80vw;
+  min-width: 400px;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-links {
+  line-height: 30px;
+  width: 190px;
+}
+
+.nav-links-right {
+  display: flex;
+  justify-content: space-evenly;
+  cursor: pointer;
+}
+
+.app-title {
+  color: var(--blue);
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.profile, .logout {
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+}
+
+.profile:hover, .logout:hover {
+  border-bottom: 1px solid var(--blue);
+}
