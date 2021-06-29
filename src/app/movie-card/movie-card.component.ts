@@ -11,7 +11,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './movie-card.component.html',
   styleUrls: ['./movie-card.component.scss']
 })
-
+/**
+ * This component will render various movie data.
+ */
 export class MovieCardComponent {
   movies: any[] = [];
   favoritemovies: any[] = [];
@@ -19,12 +21,19 @@ export class MovieCardComponent {
   constructor(public fetchApiData: FetchApiDataService,
     public dialog: MatDialog,
     public snackBar: MatSnackBar,) { }
-
+ /**
+   * This method will run the getMovies method after the MovieCard Component is initialised and rendered.
+   * @returns array of movie objects.
+   */
   ngOnInit(): void {
     this.getMovies();
     this.modifyfavoriteuser();
   }
-
+  
+ /**
+   * This method will contact an external API and receive an array of movie objects.
+   * @returns array of movie objects.
+   */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -65,7 +74,13 @@ export class MovieCardComponent {
     return this.favoritemovies.push(movieId);
   }
 
-
+ /**
+   * This method will activate dialog/modal which displays info on movie director.
+   * @param name - director name
+   * @param bio - director biography
+   * @param birth - director date of birth
+   * @param death - director date of death
+   */
   getDirector(name: string,
     bio: string,
     birth: string,
@@ -79,7 +94,11 @@ export class MovieCardComponent {
       }
     });
   }
-
+/**
+   * This method will activate dialog/modal which displays info on movie genres.
+   * @param name - genre name
+   * @param description - genre summary
+   */
   getGenre(name: string,
     description: string,
   ): void {

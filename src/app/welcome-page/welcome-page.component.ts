@@ -10,6 +10,11 @@ import { MatDialog } from '@angular/material/dialog';
 })
 
 export class WelcomePageComponent implements OnInit {
+
+  /**
+   *
+   * @param dialog
+   */
   constructor(public dialog: MatDialog) { }
   ngOnInit(): void {
   }
